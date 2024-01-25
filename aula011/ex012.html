@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De que país você é?</title>
+
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1>De que país você é?</h1>
+
+    <label for="pais">Digite aqui seu país: <input type="text" name="pais" id="pais"></label>
+
+    <input type="button" value="Verificar" onclick="verificar()">
+
+    <div id = "res"><br><strong>Resultado:</strong> </div>
+    
+
+    <script>
+        function verificar(){
+
+            let paisDigitado = document.getElementById('pais').value
+
+            let resultado = document.getElementById('res')
+
+            resultado.innerHTML = "<br>Seu país é o(a) " + `<strong> ${paisDigitado} </strong>`
+
+
+            if(paisDigitado == "Brasil"){
+                resultado.innerHTML+= "<p>Você não é estrangeiro</p>"
+            }else{
+                resultado.innerHTML += "<p>Você é estrangeiro</p>"
+            }
+
+
+        }
+    </script>
+
+</body>
+</html>
