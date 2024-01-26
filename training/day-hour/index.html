@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DayTime</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: lightgreen;
+            text-align: center;
+        }
+
+        h1{
+            color: white;
+            text-shadow: 1px 1px 0px black;
+        }
+
+        #time{
+            background-color: white;
+            height: 350px;
+            width: 350px;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 9px 9px 0px black;
+            padding: 50px;
+        }
+
+        #image{
+            background-color: black;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: auto;
+            background: transparent center center no-repeat;
+            background-size: cover;
+        }
+
+        #insta{
+            color: white;
+            font-weight: 900;
+            font-style: italic;
+            margin-top: 50px;
+            text-shadow: 0px 0px 1px black;
+            font-size: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <h1>Hora do Dia</h1>
+
+    <div id = time> 
+        <div id = "image"></div>
+        <h2 id = "texto"></h2>
+    
+    </div>
+
+    <p id = "insta">@juliocesarlandim_</p>
+
+    <script>
+        
+        let hora = new Date().getHours()
+
+        let imagemDeFundo = document.getElementById('image')
+
+        let texto = document.getElementById('texto')
+
+        if (hora > 18 || hora < 6) {
+            imagemDeFundo.style.backgroundImage = "url('images/noite.jpg')";
+            texto.innerHTML = "Está de noite"
+       
+        } else if (hora >= 6 && hora < 12) {
+
+            texto.innerHTML = "Está de dia"    
+            imagemDeFundo.style.backgroundImage = "url('images/dia.jpg')";
+        
+        } else {
+
+            texto.innerHTML = "Está de tarde"    
+            imagemDeFundo.style.backgroundImage = "url('images/tarde.jpg')";
+        }
+
+    </script>
+    
+</body>
+</html>
