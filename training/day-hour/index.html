@@ -67,19 +67,25 @@
 
         let texto = document.getElementById('texto')
 
+        let bodyElement = document.body
+
         if (hora > 18 || hora < 6) {
             imagemDeFundo.style.backgroundImage = "url('images/noite.jpg')";
+            bodyElement.style.backgroundColor = "darkblue"
+
             texto.innerHTML = "Está de noite"
        
         } else if (hora >= 6 && hora < 12) {
-
-            texto.innerHTML = "Está de dia"    
             imagemDeFundo.style.backgroundImage = "url('images/dia.jpg')";
+            bodyElement.style.backgroundColor = "lightblue"
+            
+            texto.innerHTML = "Está de dia"    
         
         } else {
-
-            texto.innerHTML = "Está de tarde"    
             imagemDeFundo.style.backgroundImage = "url('images/tarde.jpg')";
+            bodyElement.style.backgroundColor = "orange"
+            
+            texto.innerHTML = "Está de tarde"    
         }
 
     </script>

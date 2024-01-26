@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Verify</title>
+</head>
+
+
+    <style>
+        html{
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            text-align: center;
+            font-size: larger;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        h1{
+            text-shadow: 0px 0px 1px black;
+        }
+
+        #card{
+            width: 500px;
+            height: 550px;
+            background-color: white;
+            margin: auto;
+            border-radius: 20px;
+            box-shadow: 9px 9px 10px rgba(0, 0, 0, 0.459);
+            color: black;
+        }
+
+
+        .inner{
+            text-align: left;
+            padding-top: 40px;
+            padding-left: 20px;
+        }
+
+        #btn{
+            margin-top: 30px;
+        }
+
+        #img{
+            background-color: transparent;
+            width: 180px;
+            height: 180px;
+            margin: auto;
+            border-radius: 50%;
+            background-image: url();
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+<body>
+
+    <h1>Verificador de Idades</h1>
+
+    <div id = "card">
+
+        <div class = "inner">
+           
+            <label for="idade">Data de Nascimento:  <input type="number" name="idade" id="idade" min="1900" max="2024" required></label>
+        
+        </div>
+
+        <div class = "inner">
+            
+            Sexo: <input type="radio" name="sexo" id="masculino" value="masculino">
+
+            <label for="masculino">Masculino</label>
+        
+            <input type="radio" name="sexo" id="feminino" value="feminino">
+
+            <label for="feminino">Feminino</label>
+
+            <br><input type="button" value="Verificar" id = "btn" onclick="verificar()">
+        
+        </div>
+
+
+        <h2 id = "text"></h2>
+        <div id = "img"></div>
+
+    </div>
+
+    <script>
+
+        function verificar(){
+
+            let dataDeNascimento = document.getElementById('idade').value
+            let texto = document.getElementById('text')
+            let imagem = document.getElementById('img')
+            let sexo = document.querySelector('input[name="sexo"]:checked')
+
+
+            if(!sexo){
+                alert("Selecione o sexo antes de verficar")
+                return
+            }
+
+            if(dataDeNascimento<1900 || dataDeNascimento>2024){
+                alert("Selecione uma idade válida por favor")
+                return
+            }
+
+
+            sexo = sexo.value
+
+
+            texto.innerHTML = "Você tem " + (2024-dataDeNascimento) + " anos e é do sexo " + sexo
+
+            
+
+            if(sexo == "masculino"){
+
+                if(dataDeNascimento<=1964){
+                
+                imagem.style.backgroundImage = "url(images/elder-m.jpg)"
+
+                }else if (dataDeNascimento <= 2004 ){
+
+                imagem.style.backgroundImage = "url(images/adult-m.jpg)"
+                
+                }else if (dataDeNascimento <= 2010 ){
+
+                imagem.style.backgroundImage = "url(images/teen-m.jpg)"
+                
+                }else if(dataDeNascimento <= 2020 ){
+                imagem.style.backgroundImage = "url(images/kid-m.jpg)"
+                
+                }else if (dataDeNascimento<=2024){
+                
+                imagem.style.backgroundImage = "url(images/baby-m.jpg)"
+                }
+
+
+            }else if (sexo == "feminino"){
+
+
+                if(dataDeNascimento<=1964){
+                
+                imagem.style.backgroundImage = "url(images/elder-f.jpg)"
+
+                }else if (dataDeNascimento <= 2004 ){
+
+                imagem.style.backgroundImage = "url(images/adult-f.jpg)"
+                
+                }else if (dataDeNascimento <= 2010 ){
+
+                imagem.style.backgroundImage = "url(images/teen-f.jpg)"
+                
+                }else if(dataDeNascimento <= 2020 ){
+                imagem.style.backgroundImage = "url(images/kid-f.jpg)"
+                
+                }else if (dataDeNascimento<=2024){
+                
+                imagem.style.backgroundImage = "url(images/baby-f.jpg)"
+                }
+
+            }
+            
+
+
+
+
+        }
+
+    </script>
+    
+</body>
+</html>
