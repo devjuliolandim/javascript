@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <style>
+        body{
+            background-color: lightcyan;
+            text-align: center;      
+        }
+
+        button{
+            margin-top: 50px;
+            padding: 50px;
+            border-radius: 20px;
+            font-size: 2em;
+            transition: .5s;
+        }
+
+        button:hover{
+            background-color: rgb(206, 206, 206);
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="mudarFundo()">Clique aqui para mudar a cor do site</button>
+
+    <script>
+
+        function mudarFundo(){
+
+            let fundo = document.body
+
+            fundo.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+
+        }
+    </script>
+    
+</body>
+</html>

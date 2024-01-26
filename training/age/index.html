@@ -92,17 +92,21 @@
         function verificar(){
 
             let dataDeNascimento = document.getElementById('idade').value
+            let anoAtual = new Date().getFullYear()
+
             let texto = document.getElementById('text')
             let imagem = document.getElementById('img')
             let sexo = document.querySelector('input[name="sexo"]:checked')
 
+            let img = document.createElement('img')
+            img.setAttribute('id','foto')
 
             if(!sexo){
                 alert("Selecione o sexo antes de verficar")
                 return
             }
 
-            if(dataDeNascimento<1900 || dataDeNascimento>2024){
+            if(dataDeNascimento<1900 || dataDeNascimento>anoAtual){
                 alert("Selecione uma idade válida por favor")
                 return
             }
@@ -111,7 +115,7 @@
             sexo = sexo.value
 
 
-            texto.innerHTML = "Você tem " + (2024-dataDeNascimento) + " anos e é do sexo " + sexo
+            texto.innerHTML = "Você tem " + (anoAtual-dataDeNascimento) + " ano(s) e é do sexo " + sexo
 
             
 
@@ -132,7 +136,7 @@
                 }else if(dataDeNascimento <= 2020 ){
                 imagem.style.backgroundImage = "url(images/kid-m.jpg)"
                 
-                }else if (dataDeNascimento<=2024){
+                }else if (dataDeNascimento<=anoAtual){
                 
                 imagem.style.backgroundImage = "url(images/baby-m.jpg)"
                 }
@@ -156,7 +160,7 @@
                 }else if(dataDeNascimento <= 2020 ){
                 imagem.style.backgroundImage = "url(images/kid-f.jpg)"
                 
-                }else if (dataDeNascimento<=2024){
+                }else if (dataDeNascimento<=anoAtual){
                 
                 imagem.style.backgroundImage = "url(images/baby-f.jpg)"
                 }
