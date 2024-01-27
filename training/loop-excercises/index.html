@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping</title>
+    <style>
+
+        body{
+            background-color: rgb(0, 147, 197);
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        div#container{
+            width: 500px;
+            height: 500px;
+            background-color: rgb(233, 233, 233);
+            margin: auto;
+            border-radius: 25px;
+            box-shadow: 9px 9px 0px black;
+            color: black;
+        }
+
+        form{
+            padding-top: 50px;
+            margin-left: 50px;
+
+            display: grid;
+            gap: 40px;
+        }
+
+        input{
+            width: 70px;
+        }
+
+
+        #processing{
+
+            margin-left: 50px;
+            margin-top: 100px;
+
+            font-size: 2em;
+        }
+
+
+        #btn{
+            cursor: pointer;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Let's count!</h1>
+    <div id = "container">
+        <form action="">
+            <label for="begin">Start: <input type="number" name="begin" id="begin"></label>
+
+
+            <label for="end">End: <input type="number" name="end" id="end"></label>
+
+
+            <label for="step">Step: <input type="number" name="step" id="step"></label>
+
+            <input type="button" value="Count!" onclick="count()" id = "btn">
+
+            <input type="button" value="Clean!" onclick = "clean()">
+        </form>
+
+        <div id = "processing">Processing...</div>
+
+    </div>
+
+    <script>
+        
+        function count(){
+
+            let start = Number(document.getElementById('begin').value)
+
+            let end = Number(document.getElementById('end').value)
+
+            let step = Number(document.getElementById('step').value)
+
+            let result = document.getElementById('processing')
+
+            let counting = ""
+
+
+            if(start>end){
+                alert("Please, select valid numbers")
+                return
+            }
+
+            if(step<=0){
+                window.alert('Please, select a valid Step')
+                return
+            }
+
+            if(!start){
+                alert("Select a start point")
+                return
+            }
+
+
+            for(let i = start; i<= end ; i = step + i){
+
+                if(i!=end){
+                 counting += i + "👉"   
+                }else{
+                    counting += end + "👉 🏁"
+                }   
+
+                if((i+step) > end && i!= end){
+                    counting += "🏁"
+                }
+
+            }
+
+            result.innerHTML = counting
+            result.style.fontSize = "1em"
+        }
+        function clean(){
+            let processing = document.getElementById('processing')
+
+            processing.innerHTML = "Processing..."
+            processing.style.fontSize = "2em"
+        }
+    </script>
+</body>
+</html>

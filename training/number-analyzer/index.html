@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Analyzer</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Number Analyzer</h1>
+    </header>
+    <main>
+        <section id = "analyzer">
+            <div id = "input-area">
+                <label for="number">Pick a number between 1 and 100: <input type="number" name="number" id="number">
+                </label>
+                <input type="button" value="Pick" style="padding:0px 5px 0px 5px; cursor: pointer;" onclick="addNumber()">
+            </div>
+
+            <div id = "show">
+                <select name="numbers" id="numbers" size="6">   
+                </select>
+            </div>
+
+            <div id = "btn-box">
+                <input type="button" value="Show Results" class = "btn" onclick="showResults()">
+                <input type="button" value="Clean" class = "btn" onclick="clean()">
+            </div>
+
+            <div id = "results">
+
+            </div>
+
+        </section>
+        
+    </main>
+    <footer>
+        <p id = "foot"><a href="https://www.instagram.com/juliocesarlandim_/?next=%2F" target="_blank">Made By Júlio César Saladanha Landim!</a></p>
+    </footer>
+
+
+    <script src="js/script.js"></script>
+</body>
+</html>
