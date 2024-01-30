@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face{
+
+    font-family: "Apple";
+    src: url('fonts/SF-Pro-Display-Regular.otf') format('opentype');
+
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Apple", sans-serif;
+}
+
+:root{
+    --background: rgb(23, 124, 158);
+    --background-dark: rgb(5, 29, 37);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(45deg, var(--background-dark), var(--background));
+}
+
+.calculator{
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgb(16, 16, 16);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.36);
+}
+
+#display{
+    width: 260px;
+    border: none;
+    background-color: transparent;
+    padding: 20px;
+    padding-top: 90px;
+    text-align: right;
+    font-size: 40px;
+    color: white;
+}
+
+#display::placeholder{
+    color: white;
+}
+
+button{
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 1.5em;
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+#zero{
+    border-radius: 50px;
+    width: 115px;
+    padding-left: 20px;
+    text-align: left;
+    background-color: rgb(60, 60, 60);
+    color: white;
+    transition: .5s;
+}
+
+#zero:hover{
+    background-color: rgb(44, 44, 44);
+}
+
+.gray{
+    background-color: rgb(174, 174, 174);
+    transition: .5s;
+}
+
+.gray:hover{
+    background-color: rgb(136, 136, 136);
+}
+
+.orange{
+    background-color: orange;
+    color: white;
+    transition: .5s;
+}
+
+.orange:hover{
+    background-color: rgb(198, 129, 0);
+}
+
+.dark-gray{
+    background-color: rgb(60, 60, 60);
+    color: white;
+    transition: .5s;
+}
+
+.dark-gray:hover{
+    background-color: rgb(44, 44, 44);
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+        }
+        
+        div{
+            margin-top: 60px;
+        }
+
+        label{
+            display: block;
+            font-size: 7em;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div>
+        <label id = "counting">0</label>
+        <input type="button" value="Decrease" onclick="decrease()">
+        <input type="button" value="Reset" onclick="reset()">
+        <input type="button" value="Increase" onclick="increase()">
+    </div>
+
+
+    <script>
+
+        let count = 0
+        let label = document.getElementById('counting')
+
+
+        function decrease(){
+            count -= 1
+            label.innerHTML = count
+        }
+
+        function reset(){
+            count = 0
+            label.innerHTML = count
+        }
+
+        function increase(){
+            count += 1
+            label.innerHTML = count
+        }
+
+    </script>
+
+</body>
+</html>
