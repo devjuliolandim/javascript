@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+        }
+
+        div{
+            background-color: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 9px 9px 0px black;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div id = "main">
+        <h1>Guessing Game</h1>
+        <p>Type a number between 1-10</p>
+        <input type="number" name="guess" id="guess">
+        <input type="button" value="Guess!" onclick="guessTheNumber()">
+        <input type="button" value="Random" onclick="random()">
+        <p id = "attempts"></p>
+    </div>
+
+
+    <script>
+
+        let randomNumber = Math.floor(Math.random() * 10 +1)
+        let attempts = document.getElementById('attempts')
+        let attemptsNumber = 0
+
+        let list = []
+
+        function random(){
+            randomNumber = Math.floor(Math.random() * 10 +1)
+
+            attempts.innerHTML = ""
+            attemptsNumber = 0
+        }
+
+        function isCorrect(numberTyped){
+
+            if(numberTyped == randomNumber){
+                    alert("You guessed right!!")
+                    random()
+                }else if(numberTyped < randomNumber){
+                    alert("Sorry you're wrong :'( The right number is bigger!")
+                    
+                    attemptsNumber++
+                    
+                    attempts.innerHTML = "Number of Attempts: " + attemptsNumber
+
+                    list.push(numberTyped)
+                
+                }else if(numberTyped > randomNumber){
+                    alert("Sorry you're wrong :'( The right number is smaller!")
+                    
+                    attemptsNumber++
+                    
+                    attempts.innerHTML = "Number of Attempts: " + attemptsNumber
+
+                    list.push(numberTyped)
+                }
+
+
+        }
+
+        function isOnTheList(numberTyped){
+            if(list.indexOf(numberTyped) != -1){
+                return true
+            }else{
+                return false
+            }
+        }
+
+        function guessTheNumber(){
+
+            let numberTyped = Number(document.getElementById('guess').value)
+
+            if(!numberTyped){
+                alert("Please type a number!")
+            }else if(numberTyped<1 || numberTyped>10){
+                alert("Type a number between 1 and 10!")
+            }else if(isOnTheList(numberTyped)){
+                alert("You already typed this number!")
+            }else{
+                isCorrect(numberTyped)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            height: 100vh;
+            background-color: rgb(2, 160, 160);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        main{
+            background-color: white;
+            width: 50%;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 9px 9px 0px rgba(0, 0, 0, 0.459);
+            transition: .5s;
+        }
+
+        label{
+            display: block;
+            margin: 20px;
+            font-size: 1em;
+        }
+
+        button{
+            padding: 5px;
+            margin: auto;
+            display: block;
+        }
+
+
+        @media only screen and (min-width: 992px){
+            main{
+                width: 30%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <main>
+        <h1>Temperature Conversion System</h1>
+        <label for="temp">Insert Here: <input type="number" name="temp" id="temp"></label>
+        <label for="celsius">To Celsius: <input type="radio" name="choice" id="celsius"></label>
+        <label for="farenheit">To Farenheit: <input type="radio" name="choice" id="farenheit"></label>
+
+        <button onclick="conversor()">Input</button>
+
+        <p id = "ans"></p>
+    </main>
+
+    <script>
+        function conversor(){
+            let num = Number(document.getElementById('temp').value)
+            let celsius = document.getElementById('celsius')
+            let farenheit = document.getElementById('farenheit')
+
+            let answer = 0
+
+            let paragraph = document.getElementById('ans')
+
+            if(!num){
+                alert('Type a number please!')
+            }else{
+
+                if(celsius.checked){
+                    answer = celsiusConverter(num)
+                    paragraph.innerHTML = `<br>The temperature is  <strong>${answer} °C</strong>`
+                }else if(farenheit.checked){
+                    answer = farenheitConverter(num)
+                    paragraph.innerHTML = `<br>The temperature is  <strong>${answer} °F</strong>`
+                }
+
+            }
+
+        }
+
+        function celsiusConverter(number){
+            return (number - 32)*5/9
+        }
+
+        function farenheitConverter(number){
+            return (9/5*number) + 32
+        }
+
+        // TC / 5 == (TF-32)/9
+
+    </script>
+
+</body>
+</html>
