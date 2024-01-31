@@ -74,19 +74,16 @@
 
             let paragraph = document.getElementById('ans')
 
-            if(!num){
-                alert('Type a number please!')
-            }else{
-
-                if(celsius.checked){
-                    answer = celsiusConverter(num)
-                    paragraph.innerHTML = `<br>The temperature is  <strong>${answer} °C</strong>`
-                }else if(farenheit.checked){
-                    answer = farenheitConverter(num)
-                    paragraph.innerHTML = `<br>The temperature is  <strong>${answer} °F</strong>`
-                }
-
+           
+            if(celsius.checked){
+                answer = celsiusConverter(num)
+                paragraph.innerHTML = `<br>The temperature is  <strong>${answer} °C</strong>`
+            }else if(farenheit.checked){
+                answer = farenheitConverter(num)
+                paragraph.innerHTML = `<br>The temperature is  <strong>${answer} °F</strong>`
             }
+
+            
 
         }
 
@@ -97,8 +94,6 @@
         function farenheitConverter(number){
             return (9/5*number) + 32
         }
-
-        // TC / 5 == (TF-32)/9
 
     </script>
 
