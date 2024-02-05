@@ -52,4 +52,3 @@ function print(element){
 print(adults)
 */
 
-const greetings
