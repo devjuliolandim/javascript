@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What time is it</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        body{
+            background-color: gray;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        header{
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        main{
+            background-color: rgba(255, 255, 255, 0.633);
+            width: 400px;
+            height: 400px;
+            border-radius: 20px;
+            margin: auto;
+            margin-top: 20px;
+            box-shadow: 9px 9px 0px black;
+            padding: 50px;
+        }
+
+        footer{
+            text-align: center;
+            padding: 30px;
+            font-size: 1.2em;
+            color: rgba(255, 255, 255, 0.558);
+        }
+
+
+        #img{
+            width: 150px;
+            height: 150px;
+            margin: auto;
+            border-radius: 50%;
+            background: transparent center center no-repeat fixed;
+            background-size: cover;
+        } 
+
+        #text{ 
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2em;
+            font-weight: 700;
+        }
+        </style>
+</head>
+
+<body>
+    <header>
+        <h1>What Time is it?</h1>
+    </header>    
+    <main>
+        <div id="img"></div>
+        <p id = "text"></p>
+    </main>
+    <footer>
+        <p>Made By Júlio César</p>
+    </footer>
+    <script>
+
+        let hour = new Date().getHours()
+
+        hour = 8
+
+        let backgroundImg = document.getElementById('img')
+
+        let text = document.getElementById('text')
+
+        let body = document.body
+
+        if(hour < 18 && hour >12){
+            backgroundImg.style.backgroundImage = "url(../images/images/tarde.jpg)"
+
+            text.innerHTML = "It's afternoon!"
+
+            body.style.backgroundColor = "orange"
+        
+        }else if(hour<=12 && hour >=6){
+            backgroundImg.style.backgroundImage = "url(../images/images/dia.jpg)"
+
+            text.innerHTML = "It's daytime!"
+
+            body.style.backgroundColor = "blue"
+        
+        }else{
+            backgroundImg.style.backgroundImage = "url(../images/images/noite.jpg)"
+
+            text.innerHTML = "It's night!"
+
+            body.style.backgroundColor = "darkblue"
+
+        }
+        
+
+    </script>
+</body>
+</html>
