@@ -1,7 +1,7 @@
 
 let array = bigArray()
 
-sum(output,...array)
+sum(outputDOM,...array)
 
 
 function sum(output, ...numbers){
@@ -11,17 +11,21 @@ function sum(output, ...numbers){
         total+=number
     }
 
-    output(total)
+    outputDOM(total)
 }
 
 function output(value){
     console.log(value)
 }
 
+function outputDOM(value){
+    document.getElementById('myLabel').innerHTML = value
+}
+
 function bigArray(){
     let array = []
 
-    for(let i = 1; i<=10000;i++){
+    for(let i = 1; i<=100;i++){
         array.push(i)
     }
 
