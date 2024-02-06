@@ -59,6 +59,19 @@
             font-size: 2em;
             font-weight: 700;
         }
+
+        #go-back{
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        #go-back > a{
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+            font-size: 2em;
+            font-weight: 700;
+        }
         </style>
 </head>
 
@@ -69,6 +82,7 @@
     <main>
         <div id="img"></div>
         <p id = "text"></p>
+        <p id = "go-back"><a href="index.html">Go Back</a></p>
     </main>
     <footer>
         <p>Made By Júlio César</p>
@@ -76,8 +90,6 @@
     <script>
 
         let hour = new Date().getHours()
-
-        hour = 8
 
         let backgroundImg = document.getElementById('img')
 

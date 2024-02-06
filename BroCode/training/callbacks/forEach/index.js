@@ -13,11 +13,23 @@ function print(element){
 
 
 
-let students = ["julio", "matheus", "rhyan"]
+/*let students = ["julio", "matheus", "rhyan"]
 
 students.forEach(toUp)
 
 function toUp(string, index, array){
     array[index] = string.charAt(0).toUpperCase() + string.slice(1)
     console.log(array[index])
+} */
+
+
+let students = ["mack", "sirius", "marcus"]
+
+students.forEach(toUp)
+
+console.log(students)
+
+
+function toUp(string, index, array){
+    array[index] = string[0].toUpperCase() + string.slice(1)
 }
