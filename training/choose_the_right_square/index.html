@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Choose Square</title>
+</head>
+<body>
+    <header>
+        <h1>Choose the right square</h1>
+
+        <button id = "start">Start</button>
+    </header>
+    
+    <main>
+        <div class="pad" onclick="verify()"></div>
+        <div class="pad" onclick="verify()"></div>
+        <div class="pad" onclick="verify()"></div>
+        <div class="pad" onclick="verify()"></div>
+    </main>
+
+    <section>
+        <h2>Score:</h2>
+        <h2>0</h2>
+    </section>
+
+    
+    <script>
+
+        const divArrDOM = document.querySelectorAll('.pad')
+
+        const startBtn = document.getElementById('start')
+
+        let score = 0
+
+        startBtn.addEventListener('click', function(){
+
+            if(startBtn.textContent == "Start"){
+                startBtn.textContent = "Reset"   
+            }else{
+                startBtn.textContent = "Start"
+            }
+
+        })
+
+    </script>
+
+</body>
+</html>

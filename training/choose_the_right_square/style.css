@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    width: 100vw;
+    background: transparent url('imgs/8-bit-artwork-sky-landscape-wallpaper-preview.jpg') center center no-repeat fixed;
+    background-size: cover;
+    position: relative;
+}
+
+header{
+    text-align: center;
+    color: white;
+    margin-top: 5px;
+}
+
+#start{
+    margin-top: 20px;
+    padding: 20px 50px 20px 50px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.2em;
+    transition: all ease-out .5s;
+}
+
+#start:hover{
+    background-color: greenyellow;
+    cursor: pointer;
+    transition: .5s;
+}
+
+
+main{
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 50px;
+    position: relative;
+}
+
+section{
+    text-align: center;
+    border: 2px solid black;
+    width: 100px;
+    margin: 20px auto;
+    background-color: white;
+}
+
+.pad{
+    width: 150px;
+    height: 150px;
+    border: 2px solid red;
+    position: absolute;
+    background-color: lightblue;
+    transition: .5s;
+}
+
+.pad:hover{
+    background-color: green;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.pad:nth-child(1) {
+    top: 0;
+    left: 0;
+}
+
+.pad:nth-child(2) {
+    top: 0;
+    right: 0;
+}
+
+.pad:nth-child(3) {
+    bottom: 0;
+    left: 0;
+}
+
+.pad:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
