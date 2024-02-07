@@ -6,6 +6,7 @@ audio.src = "audio/shuffle.mp3"
 document.getElementById('shuffle').addEventListener('click', function() {
 
     let deck = giveCardsInOrder()
+    
     deck = shuffle(deck)
 
     for(let i = 0; i<13; i++){
@@ -14,11 +15,13 @@ document.getElementById('shuffle').addEventListener('click', function() {
     
 });
 
+
 function returnImgPath(value) {
 
     switch(value){
         case 'A':
             return 'images/cards/1.png'
+        
         case 2:
             return 'images/cards/2.png'
             
