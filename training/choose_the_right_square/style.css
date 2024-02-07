@@ -9,7 +9,7 @@
 
 body{
     width: 100vw;
-    background: transparent url('imgs/8-bit-artwork-sky-landscape-wallpaper-preview.jpg') center center no-repeat fixed;
+    background: transparent url('imgs/Sky.png') center center no-repeat fixed;
     background-size: cover;
     position: relative;
 }
