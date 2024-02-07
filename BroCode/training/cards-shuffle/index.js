@@ -1,20 +1,18 @@
-let cards = Array.from(document.querySelectorAll('.cards'))
+let cardsDOM = Array.from(document.querySelectorAll('.cards'))
+let deck = giveCardsInOrder()
 
 const audio = new Audio();
 audio.src = "audio/shuffle.mp3"
 
 document.getElementById('shuffle').addEventListener('click', function() {
 
-    let deck = giveCardsInOrder()
-    
     deck = shuffle(deck)
 
     for(let i = 0; i<13; i++){
-        cards[i].innerHTML = "<img src = '"+ returnImgPath(deck[i])+"'>"
+        cardsDOM[i].innerHTML = "<img src = '"+ returnImgPath(deck[i])+"'>"
     }
     
 });
-
 
 function returnImgPath(value) {
 
@@ -92,10 +90,9 @@ function shuffle(cards){
         do{
             shuffledNumbers[i] = (Math.floor(Math.random() *13 +1))-1
         }while(isOnTheList(numbersRandomized, shuffledNumbers[i]))
-
+        
         numbersRandomized.push(shuffledNumbers[i])
     }
-
 
     let shuffledCards = []
 
