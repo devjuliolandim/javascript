@@ -1,0 +1,3 @@
+const animal = {
+    specie: "Dog"
+}
