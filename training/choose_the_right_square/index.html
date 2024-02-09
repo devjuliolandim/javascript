@@ -10,7 +10,7 @@
     <header>
         <h1>Choose the right square</h1>
 
-        <button id = "start">Start</button>
+        <button id = "start">Random!</button>
     </header>
     
     <main>
@@ -30,15 +30,28 @@
 
         const startBtn = document.getElementById('start')
 
-        let score = 0
+        let scoreCount = 0
 
         startBtn.addEventListener('click', function(){
 
-            if(startBtn.textContent == "Start"){
-                startBtn.textContent = "Reset"   
-            }else{
-                startBtn.textContent = "Start"
-            }
+            let randomSquare = Math.floor(Math.random()*4)
+
+            divArrDOM.forEach((square,index) => {
+                square.addEventListener('click', function(){
+
+                    if(index == randomSquare){
+                        alert('You clicked in the right square')
+                    }else{
+                        alert('You clicked in the wrong square')
+                    }
+
+
+
+                })
+
+
+
+            })
 
         })
 
