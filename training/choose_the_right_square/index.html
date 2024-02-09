@@ -10,7 +10,9 @@
     <header>
         <h1>Choose the right square</h1>
 
-        <button id = "random">Random!</button>
+        <button id = "random" class="button">Random!</button>
+        <button id = "stop" class="button">Stop!</button>
+        
     </header>
     
     <main>
@@ -20,36 +22,140 @@
         <div class="pad"></div>
     </main>
 
-    <section>
-        <h2>Score:</h2>
-        <h2>0</h2>
-    </section>
-    
+    <footer>
+        <section>
+            <h2>Current Score:</h2>
+            <h2 id = "score">0</h2>
+        </section>
+
+        <section>
+            <h2>High Score:</h2>
+            <h2 id = "highScore">0</h2>
+        </section>
+    </footer>
     <script>
         
-        let arrayPads = Array.from(document.querySelectorAll('.pad'))
+        //Constants
+        const arrayPads = Array.from(document.querySelectorAll('.pad'))
 
         const randomBtn = document.getElementById('random')
 
-        randomBtn.onclick = () =>{
+        const stopBtn = document.getElementById('stop')
+
+        const score = document.getElementById('score')
+
+        const highScore = document.getElementById('highScore')
+
+        const RIGHT_SQUARE = "darkgreen"
+
+        const WRONG_SQUARE = "darkred"
+
+
+        //Dificulty Constants
+        const EASY = 1200
+
+        const MEDIUM = 1000
+
+        const HARD = 500
+
+        const ULTRA_HARD = 250
+
+        //Variables
+        let interval
+
+        let count = 0
+
+        let highScoreCounter = 0
+
+        let timeOutTimer
+
+        let gameStarted = false
+
+        //Functions
+
+
+        function update(){
+                
             let randomNum = Math.floor(Math.random()*4)
 
-            //arrayPads[randomNum].style.backgroundColor = 'green'
+            arrayPads.forEach((pad, index) => {
+                pad.style.backgroundColor = index === randomNum ? RIGHT_SQUARE : WRONG_SQUARE
+            })
 
-            for(let i = 0; i<4; i++){
-                if(i == randomNum){
-                    arrayPads[i].style.backgroundColor = 'green'
-                }else{
-                    arrayPads[i].style.backgroundColor = 'red'
-                }
+        }
+
+        randomBtn.onclick = () =>{
+
+            count = 0
+            
+            gameStarted = true 
+
+            stopBtn.style.display = "inline-block"
+
+            interval = setInterval(update,EASY)
+
+        }
+
+        stopBtn.onclick = () =>{
+            clearInterval(interval)
+            
+            stopBtn.style.display = "none"
+
+            arrayPads.forEach(function clear(element){
+                element.style.backgroundColor = "lightblue"
+            })
+
+            score.innerHTML = 0
+            score.style.color = "black"
+            
+            if(count>highScoreCounter && count > 0){
+                highScoreCounter = count
+                highScore.innerHTML = highScoreCounter
             }
         }
 
         arrayPads.forEach(pad => {
             pad.addEventListener('click', () =>{
+
+                if(pad.style.backgroundColor == RIGHT_SQUARE){
+                    count+= 10
+                    score.innerHTML = count
+
+                    if(count>0){
+                        score.style.color = "green"
+                    }
+                    
+                }else if(pad.style.backgroundColor == WRONG_SQUARE){
+                    count-= 5
+                    score.innerHTML = count
+
+                    if(count<0){
+                        score.style.color = "red"
+                    }
+                }
+
                 pad.style.backgroundColor = 'lightblue'
+
+                if(gameStarted == true){
+                    verifyDificulty(count)
+                }
             })
         })
+
+        
+
+        function verifyDificulty(currentScore){
+            clearInterval(interval)
+            if(currentScore > 100){
+                interval = setInterval(update,MEDIUM)
+            }else if(currentScore > 200){
+                interval = setInterval(update, HARD)
+            }else if(currentScore > 300){
+                interval = setInterval(update, ULTRA_HARD)
+            }else{
+                interval = setInterval(update, EASY)
+            }
+        }
 
     </script>
 

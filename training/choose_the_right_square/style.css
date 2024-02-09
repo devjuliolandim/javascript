@@ -20,7 +20,7 @@ header{
     margin-top: 5px;
 }
 
-#random{
+.button{
     margin-top: 20px;
     padding: 20px 50px 20px 50px;
     border: none;
@@ -29,10 +29,14 @@ header{
     transition: all ease-out .5s;
 }
 
-#random:hover{
+.button:hover{
     background-color: greenyellow;
     cursor: pointer;
     transition: .5s;
+}
+
+button#stop{
+    display: none;
 }
 
 
@@ -42,7 +46,8 @@ main{
     border: 2px solid black;
     margin: auto;
     margin-top: 50px;
-    position: relative;
+
+   position: relative;
 }
 
 section{
@@ -57,9 +62,9 @@ section{
     width: 150px;
     height: 150px;
     border: 2px solid rgb(98, 0, 0);
-    position: absolute;
     background-color: lightblue;
     transition: .5s;
+    position: absolute;
 }
 
 .pad:hover{
@@ -84,4 +89,8 @@ section{
 .pad:nth-child(4) {
     bottom: 0;
     right: 0;
+}
+
+footer{
+    display: flex;
 }
