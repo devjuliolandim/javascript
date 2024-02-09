@@ -20,7 +20,7 @@ header{
     margin-top: 5px;
 }
 
-#start{
+#random{
     margin-top: 20px;
     padding: 20px 50px 20px 50px;
     border: none;
@@ -29,7 +29,7 @@ header{
     transition: all ease-out .5s;
 }
 
-#start:hover{
+#random:hover{
     background-color: greenyellow;
     cursor: pointer;
     transition: .5s;
@@ -56,16 +56,14 @@ section{
 .pad{
     width: 150px;
     height: 150px;
-    border: 2px solid red;
+    border: 2px solid rgb(98, 0, 0);
     position: absolute;
     background-color: lightblue;
     transition: .5s;
 }
 
 .pad:hover{
-    background-color: green;
     cursor: pointer;
-    transition: .5s;
 }
 
 .pad:nth-child(1) {

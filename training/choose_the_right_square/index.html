@@ -10,14 +10,14 @@
     <header>
         <h1>Choose the right square</h1>
 
-        <button id = "start">Random!</button>
+        <button id = "random">Random!</button>
     </header>
     
     <main>
-        <div class="pad" onclick="verify()"></div>
-        <div class="pad" onclick="verify()"></div>
-        <div class="pad" onclick="verify()"></div>
-        <div class="pad" onclick="verify()"></div>
+        <div class="pad"></div>
+        <div class="pad"></div>
+        <div class="pad"></div>
+        <div class="pad"></div>
     </main>
 
     <section>
@@ -26,33 +26,29 @@
     </section>
     
     <script>
-        const divArrDOM = document.querySelectorAll('.pad')
+        
+        let arrayPads = Array.from(document.querySelectorAll('.pad'))
 
-        const startBtn = document.getElementById('start')
+        const randomBtn = document.getElementById('random')
 
-        let scoreCount = 0
+        randomBtn.onclick = () =>{
+            let randomNum = Math.floor(Math.random()*4)
 
-        startBtn.addEventListener('click', function(){
+            //arrayPads[randomNum].style.backgroundColor = 'green'
 
-            let randomSquare = Math.floor(Math.random()*4)
+            for(let i = 0; i<4; i++){
+                if(i == randomNum){
+                    arrayPads[i].style.backgroundColor = 'green'
+                }else{
+                    arrayPads[i].style.backgroundColor = 'red'
+                }
+            }
+        }
 
-            divArrDOM.forEach((square,index) => {
-                square.addEventListener('click', function(){
-
-                    if(index == randomSquare){
-                        alert('You clicked in the right square')
-                    }else{
-                        alert('You clicked in the wrong square')
-                    }
-
-
-
-                })
-
-
-
+        arrayPads.forEach(pad => {
+            pad.addEventListener('click', () =>{
+                pad.style.backgroundColor = 'lightblue'
             })
-
         })
 
     </script>
