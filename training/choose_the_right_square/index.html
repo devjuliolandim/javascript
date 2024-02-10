@@ -56,9 +56,9 @@
 
         const MEDIUM = 1000
 
-        const HARD = 500
+        const HARD = 750
 
-        const ULTRA_HARD = 250
+        const ULTRA_HARD = 500
 
         //Variables
         let interval
@@ -71,12 +71,25 @@
 
         let gameStarted = false
 
+        let chosenNumbers = []
+
         //Functions
 
 
         function update(){
-                
-            let randomNum = Math.floor(Math.random()*4)
+               
+            let randomNum 
+
+            do{
+            
+                randomNum = Math.floor(Math.random()*4)
+
+            }while(chosenNumbers.includes(randomNum))
+
+
+            if (chosenNumbers.length > 3){
+                chosenNumbers.shift()
+            }
 
             arrayPads.forEach((pad, index) => {
                 pad.style.backgroundColor = index === randomNum ? RIGHT_SQUARE : WRONG_SQUARE
@@ -98,6 +111,8 @@
 
         stopBtn.onclick = () =>{
             clearInterval(interval)
+
+            gameStarted = false
             
             stopBtn.style.display = "none"
 
@@ -145,14 +160,20 @@
         
 
         function verifyDificulty(currentScore){
+
             clearInterval(interval)
-            if(currentScore > 100){
+           
+            if(currentScore > 100 && currentScore <= 200){
+                clearInterval(interval)
                 interval = setInterval(update,MEDIUM)
-            }else if(currentScore > 200){
+            }else if(currentScore > 200 && currentScore<=300){
+                clearInterval(interval)
                 interval = setInterval(update, HARD)
             }else if(currentScore > 300){
+                clearInterval(interval)
                 interval = setInterval(update, ULTRA_HARD)
             }else{
+                clearInterval(interval)
                 interval = setInterval(update, EASY)
             }
         }
