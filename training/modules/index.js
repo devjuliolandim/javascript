@@ -1,6 +1,6 @@
-import * as everything from "./modules.js"
+//import * as everything from "./modules.js"
 
-console.log(everything.cars)
+/*console.log(everything.cars)
 console.log(everything.default())
 console.log(everything.getIndexCar(
     (function (){
@@ -15,4 +15,11 @@ console.log(everything.getIndexCar(
 
     })()
 ))
+*/
 
+import c from "./classmodules.js"
+
+c.cleanCourses()
+c.resetCourses()
+c.setCourse("Python")
+console.log(c.getCourses())
