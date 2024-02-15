@@ -34,14 +34,25 @@ form{
     font-size: 1.1em;
 }
 
-#container{
-    border: 2px solid gray;
-    margin: 50px;
-    display: none;
-}
-
 #record{
     padding: 20px;
     width: 166px;
     font-size: 1.1em;
 }
+
+#container{
+    border: 2px solid gray;
+    margin: 50px;
+    background-color: white;
+    display: grid;
+}
+
+#container > header{
+    background-image: linear-gradient(to right,rgba(207, 207, 207, 0.107) , rgb(207, 207, 207),rgba(207, 207, 207, 0.107)  );
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    border-radius: 20px;
+}
+
+
