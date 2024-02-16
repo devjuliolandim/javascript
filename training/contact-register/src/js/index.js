@@ -21,10 +21,15 @@ RECORD_BTN.addEventListener('click', (event) =>{
         return
     }
     
-
-
     let contact = new Contact(name, num, email)
 
+    addDiv(contact)
+})
+
+
+function addDiv(contact){
+
+    
     let contactDiv = document.createElement('div')
     
     contactDiv.classList.add('contact')
@@ -36,4 +41,5 @@ RECORD_BTN.addEventListener('click', (event) =>{
     `
 
     SHOW_CONTACTS.appendChild(contactDiv)
-})
+
+}
